@@ -1,0 +1,13 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+
+Entity celula1b is port(
+A,B: in std_logic;
+S: out std_logic);
+End celula1b;
+
+Architecture arq of celula1b is 
+Begin
+	S <= A and B;
+End arq;
+	

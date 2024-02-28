@@ -1,0 +1,13 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+
+Entity mutiplexador is port(
+e0,e1,seletor: in std_logic;
+S: out std_logic);
+End mutiplexador;
+
+Architecture arq of mutiplexador is 
+Begin
+	S <= e0 when seletor='0' else e1;
+End arq;
+	

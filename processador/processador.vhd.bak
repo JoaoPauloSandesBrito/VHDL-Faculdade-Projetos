@@ -1,0 +1,13 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+
+Entity processador is port(
+clk: in std_logic;
+resultado: out std_logic_vector(7 downto 0)
+);
+End processador;
+
+architecture a of processador is
+signal sInstrucao, sDado1, sDado2, sResultado : std_logic_vector(7 downto 0);
+signal sPc, sMi, sEscReg,sLerReg, sUla : std_logic;
+signal sEndereco : std_logic_vector(1 downto 0);

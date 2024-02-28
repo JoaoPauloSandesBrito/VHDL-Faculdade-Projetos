@@ -1,0 +1,350 @@
+|ula4b
+op[0] => celula1b:u0.op[0]
+op[0] => celula1b:u1.op[0]
+op[0] => celula1b:u2.op[0]
+op[0] => celulamsb:u3.op[0]
+op[1] => celula1b:u0.op[1]
+op[1] => celula1b:u1.op[1]
+op[1] => celula1b:u2.op[1]
+op[1] => celulamsb:u3.op[1]
+op[2] => celula1b:u0.cin
+op[2] => celula1b:u0.negaB
+op[2] => celula1b:u1.negaB
+op[2] => celula1b:u2.negaB
+op[2] => celulamsb:u3.negaB
+A[0] => celula1b:u0.A
+A[1] => celula1b:u1.A
+A[2] => celula1b:u2.A
+A[3] => celulamsb:u3.A
+B[0] => celula1b:u0.B
+B[1] => celula1b:u1.B
+B[2] => celula1b:u2.B
+B[3] => celulamsb:u3.B
+overflow <= celulamsb:u3.overflow
+Zero <= Zero.DB_MAX_OUTPUT_PORT_TYPE
+R[0] <= celula1b:u0.R
+R[1] <= celula1b:u1.R
+R[2] <= celula1b:u2.R
+R[3] <= celulamsb:u3.R
+
+
+|ula4b|celula1b:u0
+A => portaand:uAnd.A
+A => portaor:uOr.A
+A => somadorsubtrator:uSoma.A
+B => portaand:uAnd.B
+B => portaor:uOr.B
+B => somadorsubtrator:uSoma.B
+cin => somadorsubtrator:uSoma.cin
+negaB => somadorsubtrator:uSoma.negaB
+menor => mutiplexador:uMux.e3
+op[0] => mutiplexador:uMux.seletor[0]
+op[1] => mutiplexador:uMux.seletor[1]
+R <= mutiplexador:uMux.S
+cout <= somadorsubtrator:uSoma.cout
+
+
+|ula4b|celula1b:u0|portaAnd:uAnd
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u0|portaOr:uOr
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u0|somadorSubtrator:uSoma
+A => somador:uSoma.A
+B => portaxor:uXor.A
+negaB => portaxor:uXor.B
+cin => somador:uSoma.cin
+r <= somador:uSoma.r
+cout <= somador:uSoma.cout
+
+
+|ula4b|celula1b:u0|somadorSubtrator:uSoma|portaXOR:uXor
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u0|somadorSubtrator:uSoma|somador:uSoma
+A => r.IN0
+A => r.IN0
+A => cout.IN0
+A => r.IN0
+A => r.IN0
+B => r.IN1
+B => r.IN1
+B => cout.IN0
+B => r.IN1
+B => r.IN1
+cin => r.IN1
+cin => r.IN1
+cin => cout.IN1
+cin => cout.IN1
+cin => r.IN1
+cin => r.IN1
+r <= r.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u0|mutiplexador:uMux
+e0 => S.DATAB
+e1 => S.DATAB
+e2 => S.DATAB
+e3 => S.DATAA
+seletor[0] => Equal0.IN0
+seletor[0] => Equal1.IN1
+seletor[0] => Equal2.IN1
+seletor[1] => Equal0.IN1
+seletor[1] => Equal1.IN0
+seletor[1] => Equal2.IN0
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u1
+A => portaand:uAnd.A
+A => portaor:uOr.A
+A => somadorsubtrator:uSoma.A
+B => portaand:uAnd.B
+B => portaor:uOr.B
+B => somadorsubtrator:uSoma.B
+cin => somadorsubtrator:uSoma.cin
+negaB => somadorsubtrator:uSoma.negaB
+menor => mutiplexador:uMux.e3
+op[0] => mutiplexador:uMux.seletor[0]
+op[1] => mutiplexador:uMux.seletor[1]
+R <= mutiplexador:uMux.S
+cout <= somadorsubtrator:uSoma.cout
+
+
+|ula4b|celula1b:u1|portaAnd:uAnd
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u1|portaOr:uOr
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u1|somadorSubtrator:uSoma
+A => somador:uSoma.A
+B => portaxor:uXor.A
+negaB => portaxor:uXor.B
+cin => somador:uSoma.cin
+r <= somador:uSoma.r
+cout <= somador:uSoma.cout
+
+
+|ula4b|celula1b:u1|somadorSubtrator:uSoma|portaXOR:uXor
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u1|somadorSubtrator:uSoma|somador:uSoma
+A => r.IN0
+A => r.IN0
+A => cout.IN0
+A => r.IN0
+A => r.IN0
+B => r.IN1
+B => r.IN1
+B => cout.IN0
+B => r.IN1
+B => r.IN1
+cin => r.IN1
+cin => r.IN1
+cin => cout.IN1
+cin => cout.IN1
+cin => r.IN1
+cin => r.IN1
+r <= r.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u1|mutiplexador:uMux
+e0 => S.DATAB
+e1 => S.DATAB
+e2 => S.DATAB
+e3 => S.DATAA
+seletor[0] => Equal0.IN0
+seletor[0] => Equal1.IN1
+seletor[0] => Equal2.IN1
+seletor[1] => Equal0.IN1
+seletor[1] => Equal1.IN0
+seletor[1] => Equal2.IN0
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u2
+A => portaand:uAnd.A
+A => portaor:uOr.A
+A => somadorsubtrator:uSoma.A
+B => portaand:uAnd.B
+B => portaor:uOr.B
+B => somadorsubtrator:uSoma.B
+cin => somadorsubtrator:uSoma.cin
+negaB => somadorsubtrator:uSoma.negaB
+menor => mutiplexador:uMux.e3
+op[0] => mutiplexador:uMux.seletor[0]
+op[1] => mutiplexador:uMux.seletor[1]
+R <= mutiplexador:uMux.S
+cout <= somadorsubtrator:uSoma.cout
+
+
+|ula4b|celula1b:u2|portaAnd:uAnd
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u2|portaOr:uOr
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u2|somadorSubtrator:uSoma
+A => somador:uSoma.A
+B => portaxor:uXor.A
+negaB => portaxor:uXor.B
+cin => somador:uSoma.cin
+r <= somador:uSoma.r
+cout <= somador:uSoma.cout
+
+
+|ula4b|celula1b:u2|somadorSubtrator:uSoma|portaXOR:uXor
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u2|somadorSubtrator:uSoma|somador:uSoma
+A => r.IN0
+A => r.IN0
+A => cout.IN0
+A => r.IN0
+A => r.IN0
+B => r.IN1
+B => r.IN1
+B => cout.IN0
+B => r.IN1
+B => r.IN1
+cin => r.IN1
+cin => r.IN1
+cin => cout.IN1
+cin => cout.IN1
+cin => r.IN1
+cin => r.IN1
+r <= r.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celula1b:u2|mutiplexador:uMux
+e0 => S.DATAB
+e1 => S.DATAB
+e2 => S.DATAB
+e3 => S.DATAA
+seletor[0] => Equal0.IN0
+seletor[0] => Equal1.IN1
+seletor[0] => Equal2.IN1
+seletor[1] => Equal0.IN1
+seletor[1] => Equal1.IN0
+seletor[1] => Equal2.IN0
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celulaMSB:u3
+A => portaand:uAnd.A
+A => portaor:uOr.A
+A => somadorsubtrator:uSoma.A
+B => portaand:uAnd.B
+B => portaor:uOr.B
+B => somadorsubtrator:uSoma.B
+cin => somadorsubtrator:uSoma.cin
+cin => portaxor:uXor.B
+negaB => somadorsubtrator:uSoma.negaB
+menor => mutiplexador:uMux.e3
+op[0] => mutiplexador:uMux.seletor[0]
+op[1] => mutiplexador:uMux.seletor[1]
+R <= mutiplexador:uMux.S
+overflow <= portaxor:uXor.S
+sinal <= somadorsubtrator:uSoma.r
+
+
+|ula4b|celulaMSB:u3|portaAnd:uAnd
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celulaMSB:u3|portaOr:uOr
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celulaMSB:u3|somadorSubtrator:uSoma
+A => somador:uSoma.A
+B => portaxor:uXor.A
+negaB => portaxor:uXor.B
+cin => somador:uSoma.cin
+r <= somador:uSoma.r
+cout <= somador:uSoma.cout
+
+
+|ula4b|celulaMSB:u3|somadorSubtrator:uSoma|portaXOR:uXor
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celulaMSB:u3|somadorSubtrator:uSoma|somador:uSoma
+A => r.IN0
+A => r.IN0
+A => cout.IN0
+A => r.IN0
+A => r.IN0
+B => r.IN1
+B => r.IN1
+B => cout.IN0
+B => r.IN1
+B => r.IN1
+cin => r.IN1
+cin => r.IN1
+cin => cout.IN1
+cin => cout.IN1
+cin => r.IN1
+cin => r.IN1
+r <= r.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celulaMSB:u3|mutiplexador:uMux
+e0 => S.DATAB
+e1 => S.DATAB
+e2 => S.DATAB
+e3 => S.DATAA
+seletor[0] => Equal0.IN0
+seletor[0] => Equal1.IN1
+seletor[0] => Equal2.IN1
+seletor[1] => Equal0.IN1
+seletor[1] => Equal1.IN0
+seletor[1] => Equal2.IN0
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ula4b|celulaMSB:u3|portaXOR:uXor
+A => S.IN0
+B => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,15 @@
+
+State Machine - |processador|uc:uUc|pxEst
+Name pxEst.e4 pxEst.e3 pxEst.e2 pxEst.e1 pxEst.e0 
+pxEst.e0 0 0 0 0 0 
+pxEst.e1 0 0 0 1 1 
+pxEst.e2 0 0 1 0 1 
+pxEst.e3 0 1 0 0 1 
+pxEst.e4 1 0 0 0 1 
+
+State Machine - |processador|PC:uPc|pxEst
+Name pxEst.e3 pxEst.e2 pxEst.e1 pxEst.e0 
+pxEst.e0 0 0 0 0 
+pxEst.e1 0 0 1 1 
+pxEst.e2 0 1 0 1 
+pxEst.e3 1 0 0 1 

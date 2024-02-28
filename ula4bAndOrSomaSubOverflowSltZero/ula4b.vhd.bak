@@ -1,0 +1,13 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+
+Entity ula4b is port(
+A,B: in std_logic;
+R: out std_logic);
+End ula4b;
+
+Architecture arq of ula4b is 
+Begin
+	uAnd: work.portaAnd port map (a=>A,b=>B,s=>R);
+End arq;
+	

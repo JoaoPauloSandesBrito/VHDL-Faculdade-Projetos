@@ -1,0 +1,13 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+
+Entity somadorSubtrator is port(
+A,B,negaB: in std_logic;
+r,cout: out std_logic);
+End somadorSubtrator;
+
+Architecture arq of somadorSubtrator is 
+Begin
+	S <= A and B;
+End arq;
+	

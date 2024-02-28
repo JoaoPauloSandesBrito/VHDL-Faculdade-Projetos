@@ -1,0 +1,16 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+
+Entity somador is port(
+A,B,cin: in std_logic;
+r,cout: out std_logic);
+End somador;
+
+Architecture arq of somador is 
+	signal fio0, fio1:std_logic;
+Begin
+	uAnd: work.portaAnd port map (a=>A,b=>B,s=>fio0);
+	uOr: work.portaOr  port map (a=>A,b=>B,s=>fio1);
+	uMux: work.mutiplexador  port map (seletor=>op ,e0=>fio0,e1=>fio1,s=>r);
+End arq;
+	
